@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Telosys Database Repository --><root>
+    <tableList databaseId="0" databaseName="AmmDBNew" databaseProductName="Oracle" generation="2021-05-19 11:45:19">
+        <table catalog="" databaseComment="" databaseType="TABLE" javaBean="Customer" name="CUSTOMER" schema="AMM">
+            <column dbComment="" dbDefaultValue="" dbName="CUSTOMER_ID" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="NUMBER" inputType="number" javaName="customerId" javaType="java.lang.Long" jdbcTypeCode="2" label="Customer id" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="CUSTOMER_NAME" dbNotNull="true" dbPosition="2" dbSize="50" dbTypeName="VARCHAR2" inputType="text" javaName="customerName" javaType="java.lang.String" jdbcTypeCode="12" label="Customer name" maxLength="50" notEmpty="true" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="CUSTOMER_ADDRESS" dbNotNull="false" dbPosition="3" dbSize="200" dbTypeName="VARCHAR2" inputType="text" javaName="customerAddress" javaType="java.lang.String" jdbcTypeCode="12" label="Customer address" maxLength="200" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="CONTACT_PERSON" dbNotNull="false" dbPosition="4" dbSize="50" dbTypeName="VARCHAR2" inputType="text" javaName="contactPerson" javaType="java.lang.String" jdbcTypeCode="12" label="Contact person" maxLength="50" notNull="false" selected="true"/>
+        </table>
+        <table catalog="" databaseComment="" databaseType="TABLE" javaBean="Payments" name="PAYMENTS" schema="AMM">
+            <column dbComment="" dbDefaultValue="" dbName="PAYMENT_ID" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="NUMBER" inputType="number" javaName="paymentId" javaType="java.lang.Long" jdbcTypeCode="2" label="Payment id" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="PAYMENT_METHOD_ID" dbNotNull="true" dbPosition="2" dbSize="0" dbTypeName="NUMBER" inputType="number" javaName="paymentMethodId" javaType="java.lang.Long" jdbcTypeCode="2" label="Payment method id" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="TRANSACTION_ID" dbNotNull="true" dbPosition="3" dbSize="10" dbTypeName="NUMBER" inputType="number" javaName="transactionId" javaType="java.lang.Long" jdbcTypeCode="2" label="Transaction id" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="PAYMENT_VALUE" dbNotNull="false" dbPosition="4" dbSize="10" dbTypeName="NUMBER" inputType="number" javaName="paymentValue" javaType="java.lang.Float" jdbcTypeCode="2" label="Payment value" notNull="false" selected="true"/>
+            <fk name="PAYMENTS_PAY_MTHD_FK">
+                <fkcol colname="PAYMENT_METHOD_ID" colref="PAYMENT_METHOD_ID" deferrable="7" deleterule="1" sequence="1" tablename="PAYMENTS" tableref="PAYMENT_METHOD" updaterule="0"/>
+            </fk>
+            <fk name="PAYMENTS_SAL_TRN_FK">
+                <fkcol colname="TRANSACTION_ID" colref="TRANSACTION_ID" deferrable="7" deleterule="1" sequence="1" tablename="PAYMENTS" tableref="SALES_TRANSACTION" updaterule="0"/>
+            </fk>
+        </table>
+        <table catalog="" databaseComment="" databaseType="TABLE" javaBean="PaymentMethod" name="PAYMENT_METHOD" schema="AMM">
+            <column dbComment="" dbDefaultValue="" dbName="PAYMENT_METHOD_CODE" dbNotNull="true" dbPosition="1" dbSize="10" dbTypeName="VARCHAR2" inputType="text" javaName="paymentMethodCode" javaType="java.lang.String" jdbcTypeCode="12" label="Payment method code" maxLength="10" notEmpty="true" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="PAYMENT_METHOD_NAME" dbNotNull="true" dbPosition="2" dbSize="50" dbTypeName="VARCHAR2" inputType="text" javaName="paymentMethodName" javaType="java.lang.String" jdbcTypeCode="12" label="Payment method name" maxLength="50" notEmpty="true" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="DESCRIPTION" dbNotNull="false" dbPosition="3" dbSize="200" dbTypeName="VARCHAR2" inputType="text" javaName="description" javaType="java.lang.String" jdbcTypeCode="12" label="Description" maxLength="200" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="PAYMENT_METHOD_ID" dbNotNull="true" dbPosition="4" dbPrimaryKey="true" dbSize="10" dbTypeName="NUMBER" inputType="number" javaName="paymentMethodId" javaType="java.lang.Long" jdbcTypeCode="2" label="Payment method id" notNull="true" selected="true"/>
+        </table>
+        <table catalog="" databaseComment="" databaseType="TABLE" javaBean="Products" name="PRODUCTS" schema="AMM">
+            <column dbComment="" dbDefaultValue="" dbName="PRODUCT_ID" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="NUMBER" inputType="number" javaName="productId" javaType="java.lang.Long" jdbcTypeCode="2" label="Product id" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="PRODUCT_CODE" dbNotNull="true" dbPosition="2" dbSize="20" dbTypeName="VARCHAR2" inputType="text" javaName="productCode" javaType="java.lang.String" jdbcTypeCode="12" label="Product code" maxLength="20" notEmpty="true" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="PRODUCT_NAME" dbNotNull="true" dbPosition="3" dbSize="50" dbTypeName="VARCHAR2" inputType="text" javaName="productName" javaType="java.lang.String" jdbcTypeCode="12" label="Product name" maxLength="50" notEmpty="true" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="DESCRIPTION" dbNotNull="false" dbPosition="4" dbSize="200" dbTypeName="VARCHAR2" inputType="text" javaName="description" javaType="java.lang.String" jdbcTypeCode="12" label="Description" maxLength="200" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="COST_PRICE" dbNotNull="true" dbPosition="5" dbSize="10" dbTypeName="NUMBER" inputType="number" javaName="costPrice" javaType="java.lang.Float" jdbcTypeCode="2" label="Cost price" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="SALE_PRICE" dbNotNull="true" dbPosition="6" dbSize="10" dbTypeName="NUMBER" inputType="number" javaName="salePrice" javaType="java.lang.Float" jdbcTypeCode="2" label="Sale price" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="CATEGORY_ID" dbNotNull="true" dbPosition="7" dbSize="10" dbTypeName="NUMBER" inputType="number" javaName="categoryId" javaType="java.lang.Long" jdbcTypeCode="2" label="Category id" notNull="true" selected="true"/>
+            <fk name="PRODUCTS_CATEGORY_FK">
+                <fkcol colname="CATEGORY_ID" colref="CATEGORY_ID" deferrable="7" deleterule="1" sequence="1" tablename="PRODUCTS" tableref="PRODUCT_CATEGORY" updaterule="0"/>
+            </fk>
+        </table>
+        <table catalog="" databaseComment="" databaseType="TABLE" javaBean="ProductCategory" name="PRODUCT_CATEGORY" schema="AMM">
+            <column dbComment="" dbDefaultValue="" dbName="CATEGORY_CODE" dbNotNull="true" dbPosition="1" dbSize="20" dbTypeName="VARCHAR2" inputType="text" javaName="categoryCode" javaType="java.lang.String" jdbcTypeCode="12" label="Category code" maxLength="20" notEmpty="true" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="CATEGORY_NAME" dbNotNull="true" dbPosition="2" dbSize="50" dbTypeName="VARCHAR2" inputType="text" javaName="categoryName" javaType="java.lang.String" jdbcTypeCode="12" label="Category name" maxLength="50" notEmpty="true" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="CATEGORY_ID" dbNotNull="true" dbPosition="3" dbPrimaryKey="true" dbSize="10" dbTypeName="NUMBER" inputType="number" javaName="categoryId" javaType="java.lang.Long" jdbcTypeCode="2" label="Category id" notNull="true" selected="true"/>
+        </table>
+        <table catalog="" databaseComment="" databaseType="TABLE" javaBean="SalesTransaction" name="SALES_TRANSACTION" schema="AMM">
+            <column dbComment="" dbDefaultValue="" dbName="TRANSACTION_ID" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="NUMBER" inputType="number" javaName="transactionId" javaType="java.lang.Long" jdbcTypeCode="2" label="Transaction id" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="CUSTOMER_ID" dbNotNull="true" dbPosition="2" dbSize="10" dbTypeName="NUMBER" inputType="number" javaName="customerId" javaType="java.lang.Long" jdbcTypeCode="2" label="Customer id" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="TRANSACTION_DATE" dbNotNull="true" dbPosition="3" dbSize="7" dbTypeName="DATE" inputType="" javaName="transactionDate" javaType="java.sql.Date" jdbcTypeCode="93" label="Transaction date" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="TRANSACTION_VALUE" dbNotNull="true" dbPosition="4" dbSize="10" dbTypeName="NUMBER" inputType="number" javaName="transactionValue" javaType="java.lang.Float" jdbcTypeCode="2" label="Transaction value" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="VAT" dbNotNull="false" dbPosition="5" dbSize="10" dbTypeName="NUMBER" inputType="number" javaName="vat" javaType="java.lang.Float" jdbcTypeCode="2" label="Vat" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="TOTAL_TRANSACTION" dbNotNull="false" dbPosition="6" dbSize="10" dbTypeName="NUMBER" inputType="number" javaName="totalTransaction" javaType="java.lang.Float" jdbcTypeCode="2" label="Total transaction" notNull="false" selected="true"/>
+            <fk name="TRANSACTION_CUSTOMER_FK">
+                <fkcol colname="CUSTOMER_ID" colref="CUSTOMER_ID" deferrable="7" deleterule="1" sequence="1" tablename="SALES_TRANSACTION" tableref="CUSTOMER" updaterule="0"/>
+            </fk>
+        </table>
+        <table catalog="" databaseComment="" databaseType="TABLE" javaBean="TransactionProducts" name="TRANSACTION_PRODUCTS" schema="AMM">
+            <column dbComment="" dbDefaultValue="" dbName="PRODUCT_ID" dbNotNull="true" dbPosition="1" dbSize="10" dbTypeName="NUMBER" inputType="number" javaName="productId" javaType="java.lang.Long" jdbcTypeCode="2" label="Product id" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="TRANSACTION_ID" dbNotNull="true" dbPosition="2" dbSize="10" dbTypeName="NUMBER" inputType="number" javaName="transactionId" javaType="java.lang.Long" jdbcTypeCode="2" label="Transaction id" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="QUANTITY" dbNotNull="true" dbPosition="3" dbSize="10" dbTypeName="NUMBER" inputType="number" javaName="quantity" javaType="java.lang.Long" jdbcTypeCode="2" label="Quantity" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="TR_PRD_ID" dbNotNull="true" dbPosition="4" dbPrimaryKey="true" dbSize="10" dbTypeName="NUMBER" inputType="number" javaName="trPrdId" javaType="java.lang.Long" jdbcTypeCode="2" label="Tr prd id" notNull="true" selected="true"/>
+            <fk name="TRANSACTION_PRODUCT_FK">
+                <fkcol colname="PRODUCT_ID" colref="PRODUCT_ID" deferrable="7" deleterule="1" sequence="1" tablename="TRANSACTION_PRODUCTS" tableref="PRODUCTS" updaterule="0"/>
+            </fk>
+            <fk name="TRANSACTION_TRANS_FK">
+                <fkcol colname="TRANSACTION_ID" colref="TRANSACTION_ID" deferrable="7" deleterule="1" sequence="1" tablename="TRANSACTION_PRODUCTS" tableref="SALES_TRANSACTION" updaterule="0"/>
+            </fk>
+        </table>
+    </tableList>
+</root>
