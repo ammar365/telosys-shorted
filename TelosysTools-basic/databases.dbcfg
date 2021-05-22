@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databases defaultId="1" maxId="10">
+    <db dialect="org.hibernate.dialect.Oracle10gDialect" driver="oracle.jdbc.driver.OracleDriver" id="0" isolationLevel="" name="AmmDBNew" poolSize="1" typeName="ORACLE" url="jdbc:oracle:thin:@localhost:1521:xe">
+        <property name="user" value="amm"/>
+        <property name="password" value="amm"/>
+        <metadata catalog="!" schema="AMM" table-name-exclude="" table-name-include="" table-name-pattern="%" table-types="TABLE"/>
+    </db>
+</databases>
